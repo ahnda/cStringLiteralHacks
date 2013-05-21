@@ -45,4 +45,25 @@ with the new value.
 - Modifies the executable
 - Requires write permissions
 
+LD_PRELOAD
+----------
+Places a custom implementation of strcmp in between chal1
+and system libraries, allowing me to always evaluate to true.
+
+###Execution:
+
+    gcc -o chal1 chal1.c
+    gcc -fPIC -DPIC -c strcmp.c
+    #I don't think ld works on OSX. Hooray Linux!
+    ld -shared -o strcmp.so strcmp.o -ldl
+    LD_PRELOAD=./strcmp.so ./chal1 bingo
+
+###Pros:
++ No worrying about file offsets (less fragile)
++ Program is completely unaware of changes
++ No need to modify program code
+
+###Cons:
+- Well, maybe there's a strcmp in there I want!
+- Must have proper permissions (can be disabled with +s)
 
