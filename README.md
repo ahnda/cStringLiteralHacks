@@ -10,9 +10,9 @@ then parrot it back to get past the strcmp.
 
 ###Execution:
 
-`gcc -o chal1 chal1.c`
-`gcc -o readRun chal1ReadRun.c`
-`./readRun`
+    gcc -o chal1 chal1.c
+    gcc -o readRun chal1ReadRun.c
+    ./readRun
 
 ###Pros:
 + Leaves the executable intact
@@ -31,10 +31,10 @@ with the new value.
 
 ###Execution:
 
-`gcc -o chal1 chal1.c`
-`gcc -o rewrite chal1Rewrite.c`
-`#Running this will modify the chal1 executable!`
-`./rewrite`
+    gcc -o chal1 chal1.c
+    gcc -o rewrite chal1Rewrite.c
+    #Running this will modify the chal1 executable!
+    ./rewrite
 
 ###Pros:
 + No issues with regex choking on unexpected input
