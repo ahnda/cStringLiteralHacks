@@ -14,6 +14,10 @@ then parrot it back to get past the strcmp.
     gcc -o readRun chal1ReadRun.c
     ./readRun
 
+###To Break:
+
+    chmod 711 chal1
+
 ###Pros:
 + Leaves the executable intact
 + Doesn't require write permissions
@@ -36,6 +40,10 @@ with the new value.
     #Running this will modify the chal1 executable!
     ./rewrite
 
+###To Break:
+
+    chmod 711 chal1
+
 ###Pros:
 + No issues with regex choking on unexpected input
 + No problems maintaining a large enough buffer
@@ -57,6 +65,10 @@ and system libraries, allowing me to always evaluate to true.
     #I don't think ld works on OSX. Hooray Linux!
     ld -shared -o strcmp.so strcmp.o -ldl
     LD_PRELOAD=./strcmp.so ./chal1 bingo
+
+###To Break:
+
+    chmod u+s chal1
 
 ###Pros:
 + No worrying about file offsets (less fragile)
